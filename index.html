@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Castle Tintagel | Medieval Martial Arts School</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Crimson+Text:wght@400;600&family=Roboto+Condensed:wght@400;700&display=swap');
+
+        :root {
+            --tintagel-red: #c1272d;
+            --tintagel-gold: #d4af37;
+            --charcoal: #121212;
+            --deep-black: #090909;
+            --off-white: #f5f2e9;
+            --soft-gray: #bcb8ac;
+            --glass: rgba(255, 255, 255, 0.04);
+            --line: rgba(212, 175, 55, 0.25);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            color: var(--off-white);
+            font-family: 'Crimson Text', serif;
+            background:
+                radial-gradient(circle at 20% 10%, rgba(193, 39, 45, 0.14), transparent 35%),
+                radial-gradient(circle at 80% 0%, rgba(212, 175, 55, 0.12), transparent 30%),
+                linear-gradient(160deg, #050505 0%, #111111 45%, #171717 100%);
+            line-height: 1.65;
+        }
+
+        .top-bar {
+            position: sticky;
+            top: 0;
+            z-index: 40;
+            backdrop-filter: blur(8px);
+            background: rgba(0, 0, 0, 0.75);
+            border-bottom: 1px solid var(--line);
+        }
+
+        .nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 14px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--off-white);
+        }
+
+        .brand img {
+            width: 44px;
+            height: 44px;
+            object-fit: contain;
+        }
+
+        .brand-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1rem;
+            letter-spacing: 1.3px;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .nav-links a {
+            color: var(--soft-gray);
+            text-decoration: none;
+            font-family: 'Roboto Condensed', sans-serif;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--tintagel-gold);
+        }
+
+        .hero {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 56px 20px 42px;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 28px;
+            align-items: stretch;
+        }
+
+        .hero-copy,
+        .hero-media {
+            border: 1px solid var(--line);
+            background: linear-gradient(160deg, rgba(0, 0, 0, 0.68), rgba(22, 22, 22, 0.85));
+            border-radius: 18px;
+            overflow: hidden;
+            animation: riseIn 700ms ease-out both;
+        }
+
+        .hero-copy {
+            padding: 36px 28px;
+        }
+
+        .hero-kicker {
+            margin: 0;
+            color: var(--tintagel-gold);
+            font-family: 'Roboto Condensed', sans-serif;
+            letter-spacing: 1.6px;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Cinzel', serif;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            line-height: 1.2;
+            margin: 0;
+        }
+
+        h1 {
+            margin-top: 10px;
+            font-size: clamp(1.9rem, 4vw, 3rem);
+            color: var(--off-white);
+        }
+
+        .lead {
+            margin-top: 16px;
+            font-size: 1.12rem;
+            color: #f0ece1;
+            max-width: 56ch;
+        }
+
+        .hero-points {
+            margin: 22px 0 0;
+            padding: 0;
+            list-style: none;
+            display: grid;
+            gap: 12px;
+        }
+
+        .hero-points li {
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            padding-top: 10px;
+        }
+
+        .hero-points li::before {
+            content: '⚔';
+            color: var(--tintagel-gold);
+            font-size: 0.95rem;
+            margin-top: 2px;
+        }
+
+        .cta-row {
+            margin-top: 24px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .btn {
+            display: inline-block;
+            text-decoration: none;
+            border: 1px solid var(--tintagel-gold);
+            color: var(--tintagel-gold);
+            padding: 12px 18px;
+            font-family: 'Roboto Condensed', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 180ms ease;
+            border-radius: 8px;
+            font-size: 0.9rem;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            background: var(--tintagel-gold);
+            color: #111;
+        }
+
+        .btn-solid {
+            background: var(--tintagel-red);
+            border-color: var(--tintagel-red);
+            color: white;
+        }
+
+        .btn-solid:hover {
+            background: #de343b;
+            border-color: #de343b;
+            color: #fff;
+        }
+
+        .hero-media {
+            min-height: 440px;
+            position: relative;
+            display: flex;
+            align-items: end;
+            justify-content: stretch;
+        }
+
+        .hero-media img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 20%;
+            opacity: 0.64;
+        }
+
+        .hero-media .caption {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.15));
+            padding: 24px;
+            border-top: 1px solid var(--line);
+        }
+
+        .hero-media .caption strong {
+            color: var(--tintagel-gold);
+            letter-spacing: 1px;
+            font-family: 'Roboto Condensed', sans-serif;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+        }
+
+        .section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 22px 20px 26px;
+            animation: riseIn 700ms ease-out both;
+        }
+
+        .section h2 {
+            color: var(--tintagel-gold);
+            font-size: clamp(1.4rem, 3vw, 2rem);
+            margin-bottom: 14px;
+        }
+
+        .section-intro {
+            max-width: 70ch;
+            color: #e2ddd0;
+            margin-bottom: 18px;
+            font-size: 1.06rem;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 16px;
+        }
+
+        .card {
+            border: 1px solid var(--line);
+            background: var(--glass);
+            border-radius: 14px;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::after {
+            content: '';
+            position: absolute;
+            top: -40px;
+            right: -40px;
+            width: 100px;
+            height: 100px;
+            border: 1px solid rgba(212, 175, 55, 0.24);
+            border-radius: 999px;
+            pointer-events: none;
+        }
+
+        .card h3 {
+            color: var(--off-white);
+            margin-bottom: 10px;
+            font-size: 1.05rem;
+        }
+
+        .program-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .program-panel {
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            background: linear-gradient(170deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01));
+            overflow: hidden;
+        }
+
+        .program-panel img {
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+            opacity: 0.78;
+        }
+
+        .program-panel .panel-copy {
+            padding: 18px;
+        }
+
+        .parallel-note {
+            margin-top: 16px;
+            border-left: 4px solid var(--tintagel-red);
+            padding: 12px 14px;
+            background: rgba(193, 39, 45, 0.08);
+            color: #f6f0e2;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 12px;
+        }
+
+        .gallery img {
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 10px;
+            border: 1px solid var(--line);
+        }
+
+        .schedule-box {
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            background: rgba(0, 0, 0, 0.42);
+            padding: 18px;
+        }
+
+        .sword-list {
+            list-style: none;
+            padding-left: 0;
+            margin: 0;
+        }
+
+        .sword-list li {
+            position: relative;
+            padding-left: 34px;
+            margin-bottom: 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            padding-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .sword-list li::before {
+            content: '⚔';
+            position: absolute;
+            left: 6px;
+            color: var(--tintagel-gold);
+            filter: grayscale(100%);
+        }
+
+        .price {
+            color: var(--tintagel-gold);
+            font-weight: 700;
+            font-family: 'Roboto Condensed', sans-serif;
+            white-space: nowrap;
+        }
+
+        .fee-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
+        }
+
+        .fee-card {
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            padding: 16px;
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .fee-card h3 {
+            color: var(--tintagel-gold);
+            margin-bottom: 10px;
+            font-size: 1rem;
+        }
+
+        .contact {
+            margin-top: 20px;
+            border-top: 1px solid var(--line);
+            border-bottom: 1px solid var(--line);
+            background: rgba(0, 0, 0, 0.56);
+        }
+
+        .contact-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .contact h2 {
+            color: var(--tintagel-gold);
+            margin-bottom: 12px;
+        }
+
+        .socials {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 14px;
+        }
+
+        .socials a {
+            text-decoration: none;
+            color: var(--off-white);
+            border: 1px solid var(--line);
+            padding: 10px 12px;
+            border-radius: 8px;
+            font-family: 'Roboto Condensed', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.85rem;
+        }
+
+        .socials a:hover {
+            background: var(--tintagel-gold);
+            color: #111;
+            border-color: var(--tintagel-gold);
+        }
+
+        .fine {
+            color: #bcb5a3;
+            font-size: 0.9rem;
+            margin-top: 12px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 22px 16px 36px;
+            font-size: 0.84rem;
+            color: #8f8a7d;
+        }
+
+        @keyframes riseIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 980px) {
+            .hero {
+                grid-template-columns: 1fr;
+            }
+
+            .cards,
+            .program-grid,
+            .gallery,
+            .fee-grid,
+            .contact-inner {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-media {
+                min-height: 340px;
+            }
+        }
+
+        @media (max-width: 580px) {
+            .nav {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .nav-links {
+                justify-content: center;
+            }
+
+            .sword-list li {
+                flex-direction: column;
+            }
+
+            .price {
+                text-align: right;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <nav class="nav">
+            <a href="#top" class="brand">
+                <img src="logo.png" alt="Castle Tintagel crest">
+                <span class="brand-title">Castle Tintagel School</span>
+            </a>
+            <div class="nav-links">
+                <a href="#orientation">Orientation</a>
+                <a href="#paths">Kishido & Bushido</a>
+                <a href="staff.html">Staff</a>
+                <a href="#fees">School Fees</a>
+                <a href="#calendar">Calendar</a>
+                <a href="location.html">Location</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </nav>
+    </div>
+
+    <header class="hero" id="top">
+        <section class="hero-copy">
+            <p class="hero-kicker">Medieval Martial Arts School | Tokyo</p>
+            <h1>Train With Purpose. Lead With Confidence.</h1>
+            <p class="lead">Castle Tintagel is built for adults who want more than a hobby: stronger fitness, sharper focus, and the discipline to perform under pressure. Professionals and athletes train together in a structured, respectful environment.</p>
+            <ul class="hero-points">
+                <li>Start with our Orientation session to experience the school before membership.</li>
+                <li>Develop practical movement, timing, and controlled sparring skill.</li>
+                <li>Build leadership and confidence through challenge-based training.</li>
+            </ul>
+            <div class="cta-row">
+                <a href="#orientation" class="btn btn-solid">Book Orientation</a>
+                <a href="#fees" class="btn">View School Fees</a>
+            </div>
+        </section>
+
+        <aside class="hero-media">
+            <img src="https://www.castletintagel.com/wp-content/themes/tintagel/img/service/service10.png" alt="Castle Tintagel instructor portrait">
+            <div class="caption">
+                <strong>School Focus</strong>
+                <p>Western martial arts training, structured rank progression, and shared tournament culture.</p>
+            </div>
+        </aside>
+    </header>
+
+    <section class="section" aria-labelledby="why-title">
+        <h2 id="why-title">Why This School Works For Busy Adults</h2>
+        <p class="section-intro">Your training should improve your life outside class. Our coaching model supports real progress in fitness, mental composure, and teamwork for people balancing career and personal commitments.</p>
+        <div class="cards">
+            <article class="card">
+                <h3>Performance Mindset</h3>
+                <p>Learn to make calm decisions under pressure and execute with precision when intensity rises.</p>
+            </article>
+            <article class="card">
+                <h3>Athletic Conditioning</h3>
+                <p>Training combines technical drills, movement quality, endurance, and controlled competitive practice.</p>
+            </article>
+            <article class="card">
+                <h3>Leadership Development</h3>
+                <p>Students build responsibility and confidence through rank progression and challenge-day preparation.</p>
+            </article>
+        </div>
+    </section>
+
+    <section class="section" id="orientation" aria-labelledby="orientation-title">
+        <h2 id="orientation-title">Orientation (Formerly Taiken)</h2>
+        <p class="section-intro">Your first step is the Orientation lesson. You will observe class flow, practice fundamentals, and understand how training and safety systems work before joining.</p>
+        <div class="schedule-box">
+            <ul class="sword-list">
+                <li><span>Orientation Class (Intro + Observation)</span> <span class="price">¥3,300</span></li>
+                <li><span>One-Time Joining Fee</span> <span class="price">¥11,000</span></li>
+            </ul>
+            <p class="fine">Orientation fee is waived when you enroll on the same day.</p>
+        </div>
+    </section>
+
+    <section class="section" id="paths" aria-labelledby="paths-title">
+        <h2 id="paths-title">Two Parallel Class Paths</h2>
+        <p class="section-intro">Students choose either Kishido or Bushido as their primary class path. Both paths follow the same rank structure, and all students compete together in tournaments and Challenge Days.</p>
+        <div class="program-grid">
+            <article class="program-panel">
+                <img src="https://www.castletintagel.com/wp-content/themes/tintagel/img/service/service12.png" alt="Kishido instructor in armor">
+                <div class="panel-copy">
+                    <h3>Kishido</h3>
+                    <p>A knightly path centered on technical discipline, composure, and progressive combat skill.</p>
+                </div>
+            </article>
+            <article class="program-panel">
+                <img src="https://www.castletintagel.com/wp-content/themes/tintagel/img/bushido/bushido03.jpg" alt="Bushido samurai fighters training">
+                <div class="panel-copy">
+                    <h3>Bushido</h3>
+                    <p>A samurai path emphasizing commitment, form, and powerful tactical application.</p>
+                </div>
+            </article>
+        </div>
+        <div class="parallel-note">
+            Rank progression is equivalent across both paths. Kishido and Bushido students train for the same tournament events and Challenge Days.
+        </div>
+    </section>
+
+    <section class="section" aria-labelledby="school-focus-title">
+        <h2 id="school-focus-title">Current School Focus</h2>
+        <div class="cards">
+            <article class="card">
+                <h3>School Programs Only</h3>
+                <p>This page is focused on classes and student development only. Rental, sales, and consulting services are not included here.</p>
+            </article>
+            <article class="card">
+                <h3>No Buhurt Program</h3>
+                <p>Rules and class structure have changed. We do not run a Buhurt program in the current school model.</p>
+            </article>
+            <article class="card">
+                <h3>English-Only Site</h3>
+                <p>This current version is in English for clarity and stronger onboarding for new students.</p>
+            </article>
+        </div>
+    </section>
+
+    <section class="section" aria-labelledby="gallery-title">
+        <h2 id="gallery-title">Training Atmosphere</h2>
+        <p class="section-intro">Core visuals from the original Castle Tintagel site are kept to preserve identity while presenting a cleaner, conversion-focused layout.</p>
+        <div class="gallery">
+            <img src="https://www.castletintagel.com/wp-content/themes/tintagel/img/index/top_img02.png" alt="Group training atmosphere">
+            <img src="https://www.castletintagel.com/wp-content/themes/tintagel/img/service/service10.png" alt="Instructor portrait in armor">
+            <img src="https://www.castletintagel.com/wp-content/themes/tintagel/img/service/service12.png" alt="Student in armor with clear facial focus">
+        </div>
+    </section>
+
+    <section class="section" id="fees" aria-labelledby="fees-title">
+        <h2 id="fees-title">School Fee Schedule</h2>
+        <p class="section-intro">Fee structure preserved from your style file and integrated into this new full website layout.</p>
+        <div class="fee-grid">
+            <article class="fee-card">
+                <h3>Monthly Memberships</h3>
+                <ul class="sword-list">
+                    <li><span>Regular Member (Full Access)</span> <span class="price">¥13,750</span></li>
+                    <li><span>Student Member (Under 23)</span> <span class="price">¥8,800</span></li>
+                    <li><span>Family Member</span> <span class="price">¥11,000</span></li>
+                    <li><span>Distance Member (Outside Kanto)</span> <span class="price">¥2,200</span></li>
+                    <li><span>World MBS Membership (Annual)</span> <span class="price">¥3,850</span></li>
+                </ul>
+            </article>
+            <article class="fee-card">
+                <h3>Guest & Session Rates</h3>
+                <ul class="sword-list">
+                    <li><span>1-Hour Guest Class</span> <span class="price">¥6,600</span></li>
+                    <li><span>Light Battle Sparring</span> <span class="price">¥2,200</span></li>
+                    <li><span>Practice Participation (Trial)</span> <span class="price">¥1,100</span></li>
+                    <li><span>Observation Fee</span> <span class="price">¥550</span></li>
+                </ul>
+            </article>
+        </div>
+    </section>
+
+    <section class="section" id="calendar" aria-labelledby="calendar-title">
+        <h2 id="calendar-title">Training Calendar</h2>
+        <div class="schedule-box">
+            <p>Class and event dates are now provided through the official Calendar page.</p>
+            <div class="cta-row" style="margin-top: 10px;">
+                <a class="btn btn-solid" href="calendar.html">Open Calendar Page</a>
+                <a class="btn" href="https://calendar.google.com/calendar/embed?showPrint=0&amp;height=600&amp;wkst=2&amp;bgcolor=%23ffffff&amp;src=mveee6aujotuhoos5ieop6ct5s%40group.calendar.google.com&amp;color=%235229A3&amp;src=fuovuv47q3ied6dbvod5b3lh6k%40group.calendar.google.com&amp;color=%23B1365F&amp;ctz=Asia%2FTokyo" target="_blank" rel="noopener">Open in Google Calendar</a>
+            </div>
+            <p class="fine">Medical insurance and safety checks are required before sparring participation.</p>
+        </div>
+    </section>
+
+    <section class="contact" id="contact" aria-labelledby="contact-title">
+        <div class="contact-inner">
+            <div>
+                <h2 id="contact-title">Contact Castle Tintagel</h2>
+                <p>Training inquiries and Orientation reservations are welcome.</p>
+                <p><strong>Phone:</strong> 080-3690-8657</p>
+                <p><strong>Address:</strong> 4-13-3 Mejiro, Toshima-ku, Tokyo 171-0031, Japan (Yamato Soko B)</p>
+                <p><strong>Email:</strong> <a href="mailto:ykasai@castletintagel.com" style="color: var(--tintagel-gold);">ykasai@castletintagel.com</a></p>
+            </div>
+            <div>
+                <h2>Official Links</h2>
+                <p>Social channels are kept aligned with the original site connections.</p>
+                <div class="socials">
+                    <a href="https://twitter.com/castle_tintagel" target="_blank" rel="noopener">Twitter / X</a>
+                    <a href="https://www.youtube.com/channel/UCkM8-a6MTpc8fi5_QnXdZ4w" target="_blank" rel="noopener">YouTube</a>
+                    <a href="https://www.instagram.com/castle_tintagel/" target="_blank" rel="noopener">Instagram</a>
+                </div>
+                <div class="cta-row">
+                    <a class="btn btn-solid" href="https://www.castletintagel.com/contact/" target="_blank" rel="noopener">Contact Form</a>
+                    <a class="btn" href="https://www.castletintagel.com/enrollment/#orientation" target="_blank" rel="noopener">Orientation Details</a>
+                    <a class="btn" href="staff.html">Meet Staff</a>
+                    <a class="btn" href="location.html">Location & Maps</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>Official Website: <a href="https://www.castletintagel.com/" style="color: var(--tintagel-gold);">castletintagel.com</a></p>
+        <p>Copyright © Castle Tintagel. School-focused redesign draft.</p>
+    </footer>
+</body>
+</html>

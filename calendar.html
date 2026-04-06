@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Castle Tintagel | Calendar</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Crimson+Text:wght@400;600&family=Roboto+Condensed:wght@400;700&display=swap');
+
+        :root {
+            --tintagel-red: #c1272d;
+            --tintagel-gold: #d4af37;
+            --off-white: #f5f2e9;
+            --line: rgba(212, 175, 55, 0.25);
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            color: var(--off-white);
+            font-family: 'Crimson Text', serif;
+            background:
+                radial-gradient(circle at 20% 10%, rgba(193, 39, 45, 0.14), transparent 35%),
+                radial-gradient(circle at 80% 0%, rgba(212, 175, 55, 0.12), transparent 30%),
+                linear-gradient(160deg, #050505 0%, #111111 45%, #171717 100%);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .wrap {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 28px 20px 36px;
+        }
+
+        h1 {
+            margin: 0;
+            font-family: 'Cinzel', serif;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            color: var(--tintagel-gold);
+            font-size: clamp(1.6rem, 4vw, 2.4rem);
+        }
+
+        .sub {
+            margin-top: 10px;
+            color: #e6dfcf;
+        }
+
+        .actions {
+            margin: 16px 0 18px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            text-decoration: none;
+            border: 1px solid var(--tintagel-gold);
+            color: var(--tintagel-gold);
+            padding: 11px 16px;
+            border-radius: 8px;
+            font-family: 'Roboto Condensed', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.86rem;
+        }
+
+        .btn:hover {
+            background: var(--tintagel-gold);
+            color: #101010;
+        }
+
+        .btn-solid {
+            border-color: var(--tintagel-red);
+            background: var(--tintagel-red);
+            color: #fff;
+        }
+
+        .btn-solid:hover {
+            background: #de343b;
+            border-color: #de343b;
+            color: #fff;
+        }
+
+        .calendar-box {
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            overflow: hidden;
+            background: rgba(0, 0, 0, 0.45);
+        }
+
+        iframe {
+            display: block;
+            width: 100%;
+            height: 72vh;
+            min-height: 520px;
+            border: 0;
+        }
+
+        .note {
+            margin-top: 12px;
+            font-size: 0.92rem;
+            color: #bdb7aa;
+        }
+
+        @media (max-width: 680px) {
+            iframe {
+                height: 74vh;
+                min-height: 460px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="wrap">
+        <h1>Castle Tintagel Calendar</h1>
+        <p class="sub">Official class and event schedule from the current Google Calendar.</p>
+
+        <div class="actions">
+            <a class="btn btn-solid" href="index.html">Back to Home</a>
+            <a class="btn" href="https://calendar.google.com/calendar/embed?showPrint=0&amp;height=600&amp;wkst=2&amp;bgcolor=%23ffffff&amp;src=mveee6aujotuhoos5ieop6ct5s%40group.calendar.google.com&amp;color=%235229A3&amp;src=fuovuv47q3ied6dbvod5b3lh6k%40group.calendar.google.com&amp;color=%23B1365F&amp;ctz=Asia%2FTokyo" target="_blank" rel="noopener">Open in Google Calendar</a>
+        </div>
+
+        <section class="calendar-box" aria-label="Embedded Google Calendar">
+            <iframe
+                src="https://calendar.google.com/calendar/embed?showPrint=0&amp;height=600&amp;wkst=2&amp;bgcolor=%23ffffff&amp;src=mveee6aujotuhoos5ieop6ct5s%40group.calendar.google.com&amp;color=%235229A3&amp;src=fuovuv47q3ied6dbvod5b3lh6k%40group.calendar.google.com&amp;color=%23B1365F&amp;ctz=Asia%2FTokyo"
+                title="Castle Tintagel training calendar"
+                loading="lazy">
+            </iframe>
+        </section>
+
+        <p class="note">If the calendar does not load in your browser, use the Open in Google Calendar button above.</p>
+    </main>
+</body>
+</html>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Castle Tintagel | Staff</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Crimson+Text:wght@400;600&family=Roboto+Condensed:wght@400;700&display=swap');
+
+        :root {
+            --tintagel-red: #c1272d;
+            --tintagel-gold: #d4af37;
+            --off-white: #f5f2e9;
+            --line: rgba(212, 175, 55, 0.25);
+            --panel: rgba(0, 0, 0, 0.42);
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            color: var(--off-white);
+            font-family: 'Crimson Text', serif;
+            line-height: 1.62;
+            background:
+                radial-gradient(circle at 20% 10%, rgba(193, 39, 45, 0.14), transparent 35%),
+                radial-gradient(circle at 80% 0%, rgba(212, 175, 55, 0.12), transparent 30%),
+                linear-gradient(160deg, #050505 0%, #111111 45%, #171717 100%);
+            min-height: 100vh;
+        }
+
+        .wrap {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px 20px 36px;
+        }
+
+        h1, h2 {
+            margin: 0;
+            font-family: 'Cinzel', serif;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            line-height: 1.2;
+        }
+
+        h1 {
+            color: var(--tintagel-gold);
+            font-size: clamp(1.8rem, 4vw, 2.6rem);
+        }
+
+        .sub {
+            margin: 10px 0 16px;
+            color: #e6dfcf;
+            max-width: 74ch;
+        }
+
+        .actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 18px;
+        }
+
+        .btn {
+            display: inline-block;
+            text-decoration: none;
+            border: 1px solid var(--tintagel-gold);
+            color: var(--tintagel-gold);
+            padding: 11px 16px;
+            border-radius: 8px;
+            font-family: 'Roboto Condensed', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.86rem;
+        }
+
+        .btn:hover {
+            background: var(--tintagel-gold);
+            color: #101010;
+        }
+
+        .btn-solid {
+            border-color: var(--tintagel-red);
+            background: var(--tintagel-red);
+            color: #fff;
+        }
+
+        .btn-solid:hover {
+            border-color: #de343b;
+            background: #de343b;
+            color: #fff;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
+        }
+
+        .card {
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            overflow: hidden;
+            background: var(--panel);
+        }
+
+        .photo {
+            width: 100%;
+            aspect-ratio: 3 / 4;
+            object-fit: cover;
+            object-position: center 20%;
+            display: block;
+            opacity: 0.88;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .copy {
+            padding: 16px;
+        }
+
+        h2 {
+            color: var(--tintagel-gold);
+            font-size: clamp(1.1rem, 2.4vw, 1.5rem);
+            margin-bottom: 8px;
+        }
+
+        .role {
+            margin: 0 0 10px;
+            font-family: 'Roboto Condensed', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #f2ede2;
+            font-size: 0.86rem;
+        }
+
+        .meta {
+            margin: 0;
+            padding-left: 18px;
+        }
+
+        .meta li {
+            margin-bottom: 6px;
+        }
+
+        .note {
+            margin-top: 16px;
+            color: #bdb7aa;
+            font-size: 0.92rem;
+        }
+
+        @media (max-width: 920px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="wrap">
+        <h1>Instructors & Staff</h1>
+        <p class="sub">Meet the team guiding training at Castle Tintagel. This page focuses on school staff only and follows the current English-site direction.</p>
+
+        <div class="actions">
+            <a class="btn btn-solid" href="index.html">Back to Home</a>
+            <a class="btn" href="calendar.html">View Calendar</a>
+            <a class="btn" href="location.html">Location & Maps</a>
+        </div>
+
+        <section class="grid" aria-label="Staff profiles">
+            <article class="card">
+                <img class="photo" src="https://www.castletintagel.com/wp-content/themes/tintagel/img/company/company01.png" alt="Jay Noyes">
+                <div class="copy">
+                    <h2>Jay Noyes</h2>
+                    <p class="role">Head Instructor</p>
+                    <ul class="meta">
+                        <li>Founder and lead coach at Castle Tintagel.</li>
+                        <li>Background in European medieval swordsmanship and practical combat training systems.</li>
+                        <li>Leads the school training framework for technical skill, discipline, and performance mindset.</li>
+                    </ul>
+                </div>
+            </article>
+
+            <article class="card">
+                <img class="photo" src="https://www.castletintagel.com/wp-content/themes/tintagel/img/service/service10.png" alt="Tanaka Katsumi">
+                <div class="copy">
+                    <h2>Tanaka Katsumi</h2>
+                    <p class="role">Bushido Class Instructor</p>
+                    <ul class="meta">
+                        <li>Primary instructor for Bushido classes.</li>
+                        <li>Kendo 5-dan and Mugairyu Kiyokawa-ha Tendo-ryu experience.</li>
+                        <li>Supports technical progression and sparring readiness in the Bushido track.</li>
+                    </ul>
+                </div>
+            </article>
+
+            <article class="card">
+                <img class="photo" src="https://www.castletintagel.com/wp-content/themes/tintagel/img/service/service12.png" alt="Kagawa Kiyoka">
+                <div class="copy">
+                    <h2>Kagawa Kiyoka</h2>
+                    <p class="role">Kishido Class Instructor</p>
+                    <ul class="meta">
+                        <li>Instructor for Kishido beginner classes.</li>
+                        <li>International tournament competitor in women's longsword events.</li>
+                        <li>Focuses on fundamentals, timing, and strong movement mechanics.</li>
+                    </ul>
+                </div>
+            </article>
+
+            <article class="card">
+                <img class="photo" src="https://www.castletintagel.com/wp-content/themes/tintagel/img/service/service14.png" alt="Pain">
+                <div class="copy">
+                    <h2>Pain</h2>
+                    <p class="role">Physical Training Coach</p>
+                    <ul class="meta">
+                        <li>Leads physical conditioning support for Kishido beginners.</li>
+                        <li>Certified kettlebell instructor.</li>
+                        <li>Builds strength, endurance, and durability for safe combat training progression.</li>
+                    </ul>
+                </div>
+            </article>
+        </section>
+
+        <p class="note">Staff details and roles can be refined anytime as your school updates continue.</p>
+    </main>
+</body>
+</html>

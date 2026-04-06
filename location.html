@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Castle Tintagel | Location & Maps</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Crimson+Text:wght@400;600&family=Roboto+Condensed:wght@400;700&display=swap');
+
+        :root {
+            --tintagel-red: #c1272d;
+            --tintagel-gold: #d4af37;
+            --off-white: #f5f2e9;
+            --line: rgba(212, 175, 55, 0.25);
+            --panel: rgba(0, 0, 0, 0.42);
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            color: var(--off-white);
+            font-family: 'Crimson Text', serif;
+            line-height: 1.62;
+            background:
+                radial-gradient(circle at 20% 10%, rgba(193, 39, 45, 0.14), transparent 35%),
+                radial-gradient(circle at 80% 0%, rgba(212, 175, 55, 0.12), transparent 30%),
+                linear-gradient(160deg, #050505 0%, #111111 45%, #171717 100%);
+        }
+
+        .wrap {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 28px 20px 34px;
+        }
+
+        h1, h2 {
+            margin: 0;
+            font-family: 'Cinzel', serif;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            line-height: 1.2;
+        }
+
+        h1 {
+            color: var(--tintagel-gold);
+            font-size: clamp(1.7rem, 4vw, 2.5rem);
+        }
+
+        h2 {
+            color: var(--tintagel-gold);
+            font-size: clamp(1.2rem, 3vw, 1.7rem);
+            margin-bottom: 10px;
+        }
+
+        .sub {
+            margin: 10px 0 16px;
+            color: #e8e2d2;
+        }
+
+        .actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            text-decoration: none;
+            border: 1px solid var(--tintagel-gold);
+            color: var(--tintagel-gold);
+            padding: 11px 16px;
+            border-radius: 8px;
+            font-family: 'Roboto Condensed', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.86rem;
+        }
+
+        .btn:hover {
+            background: var(--tintagel-gold);
+            color: #101010;
+        }
+
+        .btn-solid {
+            border-color: var(--tintagel-red);
+            background: var(--tintagel-red);
+            color: #fff;
+        }
+
+        .btn-solid:hover {
+            border-color: #de343b;
+            background: #de343b;
+            color: #fff;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .panel {
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            background: var(--panel);
+            overflow: hidden;
+        }
+
+        .panel-head {
+            padding: 14px 16px;
+            border-bottom: 1px solid var(--line);
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .panel-body {
+            padding: 14px 16px 16px;
+        }
+
+        .facts {
+            margin: 0;
+            padding-left: 18px;
+        }
+
+        .facts li {
+            margin-bottom: 6px;
+        }
+
+        iframe {
+            width: 100%;
+            min-height: 420px;
+            height: 58vh;
+            border: 0;
+            display: block;
+        }
+
+        .note {
+            margin-top: 8px;
+            color: #bdb7aa;
+            font-size: 0.92rem;
+        }
+
+        .full {
+            margin-top: 16px;
+        }
+
+        @media (max-width: 960px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            iframe {
+                min-height: 360px;
+                height: 54vh;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="wrap">
+        <h1>School Location & Maps</h1>
+        <p class="sub">Find Castle Tintagel in Mejiro, Tokyo, plus branch reference location information.</p>
+
+        <div class="actions">
+            <a class="btn btn-solid" href="index.html">Back to Home</a>
+            <a class="btn" href="calendar.html">View Calendar</a>
+        </div>
+
+        <section class="grid" aria-label="Location information and maps">
+            <article class="panel">
+                <div class="panel-head">
+                    <h2>Main School (Tokyo)</h2>
+                </div>
+                <div class="panel-body">
+                    <ul class="facts">
+                        <li>Address: Castle Tintagel, Yamato Soko B, 4-13-3 Mejiro, Toshima-ku, Tokyo 171-0031, Japan</li>
+                        <li>Phone: 080-3690-8657</li>
+                        <li>Access: About 10 minutes from JR Mejiro Station</li>
+                        <li>Access: About 5 minutes from Seibu Ikebukuro Line Shiinamachi South Exit</li>
+                    </ul>
+                    <p class="note">Landmark note from the current site: inside the same grounds as the Kuroneko Yamato office, toward the back area.</p>
+                </div>
+            </article>
+
+            <article class="panel">
+                <div class="panel-head">
+                    <h2>Tokyo Map</h2>
+                </div>
+                <iframe
+                    title="Castle Tintagel Tokyo map"
+                    loading="lazy"
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12956.24642159254!2d139.6979816!3d35.7247034!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xd0727e9857568fdc!2z44Kt44Oj44OD44K544Or44O744OG44Kj44Oz44K_44K444Kn44OrKENhc3RsZSBUaW50YWdlbCAp!5e0!3m2!1sja!2sjp!4v1627523507179!5m2!1sja!2sjp">
+                </iframe>
+            </article>
+        </section>
+
+    </main>
+</body>
+</html>
