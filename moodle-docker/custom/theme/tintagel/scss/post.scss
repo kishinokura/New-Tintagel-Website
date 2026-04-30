@@ -1,2 +1,66 @@
-// Custom rules loaded AFTER Boost
-body { font-family: Georgia, serif; }
+// Custom rules loaded AFTER Boost — fine-tuning beyond variable overrides.
+
+// Heraldic typography for headings + site title
+body {
+    font-family: Georgia, "Times New Roman", "Yu Mincho", "Hiragino Mincho ProN", serif;
+}
+
+h1, h2, h3, .h1, .h2, .h3 {
+    letter-spacing: .01em;
+    font-weight: 700;
+}
+
+// Top navbar: deep crimson with gold underline (heraldic banner)
+.navbar.fixed-top,
+.navbar-light {
+    background: linear-gradient(180deg, #800905 0%, #5a0603 100%) !important;
+    border-bottom: 3px solid #f3c748;
+
+    .navbar-brand,
+    .nav-link,
+    .navbar-text {
+        color: #fbf6ec !important;
+    }
+    .nav-link:hover {
+        color: #f3c748 !important;
+    }
+}
+
+// Primary buttons: crimson with gold border on hover
+.btn-primary {
+    background-color: #cb150c;
+    border-color: #800905;
+    &:hover, &:focus {
+        background-color: #800905;
+        border-color: #f3c748;
+        box-shadow: 0 0 0 .15rem rgba(243, 199, 72, .35);
+    }
+}
+
+// Card / block accents
+.card,
+.block {
+    border: 1px solid rgba(200, 147, 42, .35);
+    border-top: 3px solid #cb150c;
+}
+
+// Course cards on dashboard
+.dashboard-card {
+    border-top: 3px solid #cb150c;
+}
+
+// Footer
+#page-footer,
+.footer-dark {
+    background-color: #211710;
+    color: #fbf6ec;
+    border-top: 3px solid #f3c748;
+    a { color: #f3c748; }
+}
+
+// Selection highlight
+::selection {
+    background: #f3c748;
+    color: #211710;
+}
+

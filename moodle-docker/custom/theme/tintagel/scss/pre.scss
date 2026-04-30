@@ -1,2 +1,37 @@
-// SCSS variables / overrides loaded BEFORE Boost defaults
-$primary: #6b1f2a;
+// Castle Tintagel palette (extracted from heraldic logo)
+// Loaded BEFORE Boost defaults so these override Bootstrap variables.
+
+// --- Brand colours ---
+$tintagel-crimson:        #cb150c;   // primary heraldic red
+$tintagel-wine:           #800905;   // dark crimson (hover/active)
+$tintagel-gold:           #f3c748;   // bright accent gold
+$tintagel-antique-gold:   #c8932a;   // muted gold (borders, highlights)
+$tintagel-walnut:         #44311b;   // dark wood brown
+$tintagel-sienna:         #9b5117;   // burnt sienna
+$tintagel-ink:            #211710;   // body text
+$tintagel-parchment:      #fbf6ec;   // page background tint
+
+// --- Bootstrap theme variable overrides (Boost is built on Bootstrap 5) ---
+$primary:    $tintagel-crimson;
+$secondary:  $tintagel-walnut;
+$success:    #4a6b2a;
+$info:       $tintagel-antique-gold;
+$warning:    $tintagel-gold;
+$danger:     $tintagel-wine;
+$light:      $tintagel-parchment;
+$dark:       $tintagel-ink;
+
+$body-bg:    $tintagel-parchment;
+$body-color: $tintagel-ink;
+
+$link-color:       $tintagel-wine;
+$link-hover-color: $tintagel-crimson;
+
+$font-family-serif: Georgia, "Times New Roman", "Yu Mincho", "Hiragino Mincho ProN", serif;
+$headings-font-family: $font-family-serif;
+$headings-color:       $tintagel-wine;
+
+$border-radius:    .25rem;
+$border-radius-sm: .15rem;
+$border-radius-lg: .35rem;
+
