@@ -18,7 +18,7 @@ Get-ChildItem (Join-Path $root 'custom\theme') -Directory -ErrorAction SilentlyC
     Write-Host "==> Syncing theme: $($_.Name)"
     docker exec moodle-app rm -rf "/bitnami/moodle/theme/$($_.Name)"
     docker cp "$($_.FullName)" "moodle-app:/bitnami/moodle/theme/"
-    docker exec moodle-app chown -R 1001:0 "/bitnami/moodle/theme/$($_.Name)"
+    docker exec moodle-app chown -R daemon:daemon "/bitnami/moodle/theme/$($_.Name)"
 }
 
 # --- Local plugins ---
@@ -26,7 +26,7 @@ Get-ChildItem (Join-Path $root 'custom\local') -Directory -ErrorAction SilentlyC
     Write-Host "==> Syncing local plugin: $($_.Name)"
     docker exec moodle-app rm -rf "/bitnami/moodle/local/$($_.Name)"
     docker cp "$($_.FullName)" "moodle-app:/bitnami/moodle/local/"
-    docker exec moodle-app chown -R 1001:0 "/bitnami/moodle/local/$($_.Name)"
+    docker exec moodle-app chown -R daemon:daemon "/bitnami/moodle/local/$($_.Name)"
 }
 
 Write-Host "==> Purging Moodle caches"
