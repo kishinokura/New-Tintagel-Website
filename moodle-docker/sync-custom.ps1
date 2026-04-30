@@ -30,7 +30,8 @@ Get-ChildItem (Join-Path $root 'custom\local') -Directory -ErrorAction SilentlyC
 }
 
 Write-Host "==> Purging Moodle caches"
-docker exec moodle-app php /opt/bitnami/moodle/admin/cli/purge_caches.php
+# Run purge as the Apache user so cache files end up daemon-owned, not root-owned.
+docker exec --user daemon moodle-app php /opt/bitnami/moodle/admin/cli/purge_caches.php
 
 Write-Host ""
 Write-Host "Done. If you added a NEW plugin/theme, also visit:" -ForegroundColor Yellow
