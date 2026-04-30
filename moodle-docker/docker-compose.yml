@@ -1,0 +1,57 @@
+# Castle Tintagel Moodle - local Docker stack (Option A: named volumes)
+services:
+  moodle-db:
+    image: mariadb:10.11
+    container_name: moodle-db
+    restart: unless-stopped
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+      - --innodb-file-per-table=1
+      - --skip-character-set-client-handshake
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: moodle
+      MYSQL_USER: moodleuser
+      MYSQL_PASSWORD: moodlepass
+    volumes:
+      - moodle_db:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+
+  moodle:
+    image: bitnamilegacy/moodle:5.0.2
+    container_name: moodle-app
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+      - "8443:8443"
+    environment:
+      ALLOW_EMPTY_PASSWORD: "no"
+      MOODLE_DATABASE_TYPE: mariadb
+      MOODLE_DATABASE_HOST: moodle-db
+      MOODLE_DATABASE_PORT_NUMBER: "3306"
+      MOODLE_DATABASE_USER: moodleuser
+      MOODLE_DATABASE_PASSWORD: moodlepass
+      MOODLE_DATABASE_NAME: moodle
+      MOODLE_USERNAME: admin
+      MOODLE_PASSWORD: ChangeMe!2026
+      MOODLE_EMAIL: admin@tintagel.local
+      MOODLE_SITE_NAME: "Castle Tintagel LMS"
+    volumes:
+      - moodle_app:/bitnami/moodle
+      - moodle_data:/bitnami/moodledata
+      # NOTE: custom themes/plugins are NOT bind-mounted here because that
+      # confuses Bitnami's first-boot installer. Instead, use sync-custom.ps1
+      # to push files from .\custom\ into the running container.
+    depends_on:
+      moodle-db:
+        condition: service_healthy
+
+volumes:
+  moodle_db:
+  moodle_app:
+  moodle_data:

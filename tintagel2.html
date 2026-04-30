@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Castle Tintagel | Membership & Fees</title>
+    <style>
+        :root {
+            --tintagel-red: #c1272d;
+            --tintagel-gold: #d4af37;
+            --dark-charcoal: #121212;
+            --off-white: #f5f5f5;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background-color: var(--dark-charcoal);
+            color: var(--off-white);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #000;
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom: 3px solid var(--tintagel-gold);
+        }
+
+        .logo {
+            max-width: 280px;
+            height: auto;
+            margin-bottom: 15px;
+        }
+
+        h2, h3 {
+            color: var(--tintagel-gold);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        .section-box {
+            margin-bottom: 45px;
+            border-top: 1px solid #333;
+            padding-top: 25px;
+        }
+
+        /* Sword Bullet Points */
+        .sword-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .sword-list li {
+            position: relative;
+            padding-left: 45px;
+            margin-bottom: 18px;
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid #222;
+            padding-bottom: 10px;
+        }
+
+        .sword-list li::before {
+            content: '⚔️'; 
+            position: absolute;
+            left: 5px;
+            font-size: 1.2rem;
+            /* Simple grayscale filter to keep it from being too colorful */
+            filter: grayscale(100%) brightness(1.2); 
+        }
+
+        .price {
+            color: var(--tintagel-gold);
+            font-weight: bold;
+            font-family: 'Courier New', monospace;
+            font-size: 1.1rem;
+        }
+
+        .footer {
+            background-color: #000;
+            padding: 50px 20px;
+            text-align: center;
+            border-top: 2px solid var(--tintagel-gold);
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 25px;
+            border: 1px solid var(--tintagel-gold);
+            color: var(--tintagel-gold);
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: var(--tintagel-gold);
+            color: #000;
+        }
+
+        .sub-text {
+            font-size: 0.85rem;
+            color: #888;
+            font-style: italic;
+        }
+
+        @media (max-width: 600px) {
+            .sword-list li { flex-direction: column; }
+            .price { margin-top: 5px; text-align: right; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <img src="logo.png" alt="Castle Tintagel Logo" class="logo">
+    <p style="color: var(--tintagel-gold); font-style: italic; letter-spacing: 1px;">The Heart of Chivalry in Mejiro, Tokyo</p>
+</header>
+
+<div class="container">
+    
+    <h2>School Fee Schedule</h2>
+
+    <div class="section-box">
+        <h3>🛡️ Enrollment</h3>
+        <ul class="sword-list">
+            <li>
+                <span>One-Time Joining Fee</span> 
+                <span class="price">¥11,000</span>
+            </li>
+            <li>
+                <span>Orientation Class (Intro + Observation)</span> 
+                <span class="price">¥3,300</span>
+            </li>
+        </ul>
+        <p class="sub-text">*Orientation fee is waived if you enroll on the same day.</p>
+    </div>
+
+    <div class="section-box">
+        <h3>⚔️ Monthly Memberships</h3>
+        <ul class="sword-list">
+            <li><span>Regular Member (Full Access)</span> <span class="price">¥13,750</span></li>
+            <li><span>Student Member (Under 23)</span> <span class="price">¥8,800</span></li>
+            <li><span>Family Member</span> <span class="price">¥11,000</span></li>
+            <li><span>Distance Member (Outside Kanto)</span> <span class="price">¥2,200</span></li>
+        </ul>
+        <div style="margin-top: 10px; border: 1px solid var(--tintagel-red); padding: 15px; background: rgba(193, 39, 45, 0.05);">
+            <ul class="sword-list" style="margin: 0;">
+                <li style="border: none; padding-bottom: 0;">
+                    <span><strong>World MBS Membership (Annual)</strong></span> 
+                    <span class="price">¥3,850</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section-box">
+        <h3>🤺 Guest & Session Rates</h3>
+        <ul class="sword-list">
+            <li><span>1-Hour Guest Class</span> <span class="price">¥6,600</span></li>
+            <li><span>Light Battle (Unarmored) Sparring</span> <span class="price">¥2,200</span></li>
+            <li><span>Practice Participation (Trial)</span> <span class="price">¥1,100</span></li>
+            <li><span>Observation Fee</span> <span class="price">¥550</span></li>
+        </ul>
+    </div>
+
+    <div class="section-box">
+        <h3>📦 Equipment Rental & Storage</h3>
+        <ul class="sword-list">
+            <li><span>Regular Rental Package (Monthly)</span> <span class="price">¥3,300</span></li>
+            <li><span>Private Armor Rental (Monthly)</span> <span class="price">¥5,500</span></li>
+            <li><span>Daily Light Battle Gear</span> <span class="price">¥2,200</span></li>
+            <li><span>Daily Armored Gear</span> <span class="price">¥11,000</span></li>
+            <li><span>Armor Box Storage (Monthly)</span> <span class="price">¥2,200</span></li>
+        </ul>
+    </div>
+
+    <div style="text-align: center; border: 1px solid #444; padding: 20px; background: #000;">
+        <h3 style="margin-top: 0;">📅 Sparring Schedule</h3>
+        <p>Thursday Evenings & Saturday Afternoons</p>
+        <p class="sub-text">Note: Medical insurance and safety checks are required before participating in sparring.</p>
+    </div>
+
+</div>
+
+<div class="footer">
+    <p>Official Website: <a href="https://castletintagel.com" style="color: var(--tintagel-gold);">castletintagel.com</a></p>
+    <p>Contact Administration:</p>
+    <a href="mailto:ykasai@castletintagel.com" class="btn">ykasai@castletintagel.com</a>
+    <p style="margin-top: 40px; font-size: 0.75rem; opacity: 0.5;">© Castle Tintagel. Prices include 10% consumption tax.</p>
+</div>
+
+</body>
+</html>
